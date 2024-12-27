@@ -56,7 +56,7 @@ let peoples = {
   },
   Severino: {
     Name: 'João Severino De Lira',
-    Dia: 10,
+    Dia: 18,
     Mes: 12,
     Folga: false,
     Dupla: false,
