@@ -159,7 +159,7 @@ let peoples = {
     Mes: 11,
     Folga: false,
     Dupla: false,
-    GateMaker: [8],
+    GateMaker: [1, 23],
     Time: 'H3',
     Count: [0, 0, 0, 0, 0],
     Folgas: []
