@@ -76,7 +76,7 @@ let peoples = {
     Count: [0, 0, 0, 0, 0],
     Folgas: []
   },
-  Vitor: {
+  /*Vitor: {
     Name: 'Vitor Oliveira Barbosa',
     Dia: 8,
     Mes: 11,
@@ -86,7 +86,7 @@ let peoples = {
     Time: 'H3',
     Count: [0, 0, 0, 0, 0],
     Folgas: []
-  },
+  },*/
   Pereira: {
     Name: 'Matheus Pereira Ramos',
     Dia: 5,
