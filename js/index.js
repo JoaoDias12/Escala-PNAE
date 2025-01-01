@@ -5,7 +5,7 @@ let peoples = {
     Mes: 11,
     Folga: false,
     Dupla: false,
-    GateMaker: [1, 23],
+    GateMaker: [2, 22],
     Time: 'H3',
     Count: [0, 0, 0, 0, 0],
     Folgas: []
@@ -16,7 +16,7 @@ let peoples = {
     Mes: 11,
     Folga: false,
     Dupla: false,
-    GateMaker: [4, 19, 27],
+    GateMaker: [19, 25],
     Time: 'H3',
     Count: [0, 0, 0, 0, 0],
     Folgas: []
@@ -38,7 +38,7 @@ let peoples = {
     Mes: 11,
     Folga: false,
     Dupla: false,
-    GateMaker: [7, 16, 30],
+    GateMaker: [7, 15, 28],
     Time: 'H3',
     Count: [0, 0, 0, 0, 0],
     Folgas: []
@@ -49,7 +49,7 @@ let peoples = {
     Mes: 11,
     Folga: false,
     Dupla: false,
-    GateMaker: [6, 15, 17, 29],
+    GateMaker: [6, 17, 27],
     Time: 'H3',
     Count: [0, 0, 0, 0, 0],
     Folgas: []
@@ -60,7 +60,7 @@ let peoples = {
     Mes: 12,
     Folga: false,
     Dupla: false,
-    GateMaker: [5, 18, 28],
+    GateMaker: [5, 18, 26],
     Time: 'H3',
     Count: [0, 0, 0, 0, 0],
     Folgas: []
@@ -71,7 +71,7 @@ let peoples = {
     Mes: 11,
     Folga: false,
     Dupla: false,
-    GateMaker: [20],
+    GateMaker: [4, 20],
     Time: 'H3',
     Count: [0, 0, 0, 0, 0],
     Folgas: []
@@ -93,7 +93,7 @@ let peoples = {
     Mes: 11,
     Folga: false,
     Dupla: false,
-    GateMaker: [2, 22, 24, 25],
+    GateMaker: [3, 21, 23],
     Time: 'H3',
     Count: [0, 0, 0, 0, 0],
     Folgas: []
@@ -115,7 +115,7 @@ let peoples = {
     Mes: 11,
     Folga: false,
     Dupla: false,
-    GateMaker: [11],
+    GateMaker: [11, 13, 31],
     Time: 'H1',
     Count: [0, 0, 0, 0, 0],
     Folgas: []
@@ -126,7 +126,7 @@ let peoples = {
     Mes: 11,
     Folga: false,
     Dupla: false,
-    GateMaker: [10, 13],
+    GateMaker: [10, 30],
     Time: 'H1',
     Count: [0, 0, 0, 0, 0],
     Folgas: []
@@ -137,7 +137,7 @@ let peoples = {
     Mes: 11,
     Folga: false,
     Dupla: false,
-    GateMaker: [9, 14, 31],
+    GateMaker: [9, 14, 29],
     Time: 'H1',
     Count: [0, 0, 0, 0, 0],
     Folgas: []
@@ -148,7 +148,7 @@ let peoples = {
     Mes: 11,
     Folga: false,
     Dupla: false,
-    GateMaker: [0],
+    GateMaker: [8, 15],
     Time: 'H2',
     Count: [0, 0, 0, 0, 0],
     Folgas: []
