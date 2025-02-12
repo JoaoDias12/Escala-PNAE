@@ -50,7 +50,7 @@ let peoples = {
     Folga: false,
     Dupla: false,
     GateMaker: [],
-    Time: 'H0',
+    Time: 'H1',
     Count: [0, 0, 0, 0, 0],
     Folgas: []
   },
@@ -72,7 +72,7 @@ let peoples = {
     Folga: false,
     Dupla: false,
     GateMaker: [6, 12],
-    Time: 'H3',
+    Time: 'H1',
     Count: [0, 0, 0, 0, 0],
     Folgas: []
   },
@@ -131,17 +131,6 @@ let peoples = {
     Count: [0, 0, 0, 0, 0],
     Folgas: []
   },
-  Rafael: {
-    Name: 'Rafael Lima De Souza',
-    Dia: 3,
-    Mes: 1,
-    Folga: false,
-    Dupla: false,
-    GateMaker: [18, 22],
-    Time: 'H1',
-    Count: [0, 0, 0, 0, 0],
-    Folgas: []
-  },
   Pedro: {
     Name: 'Pedro Henrique Sorrilha Cordeiro',
     Dia: 6,
@@ -149,7 +138,7 @@ let peoples = {
     Folga: false,
     Dupla: false,
     GateMaker: [3, 17],
-    Time: 'H2',
+    Time: 'H1',
     Count: [0, 0, 0, 0, 0],
     Folgas: []
   },
