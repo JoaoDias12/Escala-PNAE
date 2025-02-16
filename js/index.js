@@ -138,7 +138,7 @@ let peoples = {
     Folga: false,
     Dupla: false,
     GateMaker: [3, 17],
-    Time: 'H1',
+    Time: 'H0',
     Count: [0, 0, 0, 0, 0],
     Folgas: []
   },
