@@ -72,7 +72,7 @@ let peoples = {
     Folga: false,
     Dupla: false,
     GateMaker: [6, 12],
-    Time: 'H1',
+    Time: 'H2',
     Count: [0, 0, 0, 0, 0],
     Folgas: []
   },
