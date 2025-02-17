@@ -379,16 +379,22 @@ header {
 
 .close {
   right: -50% !important;
+  visibility: none !important;
+  position: absolute !important;
+  display: none !important;
 }
 
 .closeLeft {
   left: -50% !important;
+  visibility: none !important;
+  position: absolute !important;
+  display: none !important;
 }
 
 #openAdmin {
   position: fixed;
-  top: 10px;
-  left: 25px;
+  top: 25px;
+  left: 20px;
   display: flex;
   flex-direction: column;
   gap: 0.3rem;
@@ -405,7 +411,7 @@ header {
   left: 0;
   top: 0;
 
-  width: 40%;
+  width: 50%;
   height: 100%;
 
   background: #0082d2;
@@ -428,7 +434,7 @@ header {
 
   .namesControl {
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-columns: 1fr 1fr;
     align-items: center;
     justify-content: center;
     gap: 1.5rem;
@@ -504,9 +510,9 @@ header {
 
     div {
       display: flex;
+      flex-direction: column;
       align-items: center;
       justify-content: center;
-      gap: 1rem;
 
       div {
         display: flex;
@@ -514,13 +520,21 @@ header {
         align-items: center;
 
         width: 8rem;
-        height: 8rem;
+        height: 4rem;
+      }
+    }
+
+    .dvChecks {
+      display: flex;
+      flex-direction: row;
+
+      div {
+        width: 5rem;
       }
     }
 
     #btnBackInfos {
       position: absolute;
-      left: 2px;
       top: 50px;
 
       color: white;
@@ -570,10 +584,10 @@ header {
 }
 
 .hidden {
-  visibility: none;
-  position: absolute;
-  display: none;
-  top: -10000rem;
+  visibility: none !important;
+  position: absolute !important;
+  display: none !important;
+  top: -10000rem !important;
 }
 
 
