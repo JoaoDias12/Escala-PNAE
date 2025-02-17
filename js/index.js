@@ -146,7 +146,7 @@ let peoples = {
     Name: 'Bruno Correia',
     Dia: 1,
     Mes: 1,
-    Folga: false,
+    Folga: true,
     Dupla: true,
     GateMaker: [8],
     Time: 'H3',
