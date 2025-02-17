@@ -291,7 +291,7 @@ function loadAdminThings() {
       <label>Dia de Montar Portão</label>
       <label class="daysGate">${peoples[dp].GateMaker}</label>
 
-      <div>
+      <div class="dvChecks">
 
       <div>
       <label>Dupla</label>
