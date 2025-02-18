@@ -1361,8 +1361,8 @@ function copyScale() {
       const fixoCheckIn = this.querySelector('.FixedCheckIn h2').textContent
 
       // Captura o nome do responsável pelo fechamento do check-in
-      const responsavelFechamento =
-        this.querySelector('.gateMaker h3').textContent
+      const gateMakerH3 = this.querySelector('.gateMaker h3')
+      const responsavelFechamento = gateMakerH3 ? gateMakerH3.textContent : ''
 
       // Captura todos os voos
       const voos = this.querySelectorAll('.flight')
