@@ -1,6 +1,6 @@
 let peoples = {
   Dias: {
-    Name: 'João Vitor Dias',
+    Name: 'João Dias',
     Dia: 1,
     Mes: 1,
     Folga: false,
@@ -12,7 +12,7 @@ let peoples = {
     Ferias: false
   },
   Antonio: {
-    Name: 'Antonio Jose Alves Viana',
+    Name: 'Antonio Viana',
     Dia: 5,
     Mes: 1,
     Folga: false,
@@ -36,7 +36,7 @@ let peoples = {
     Ferias: false
   },
   Souza: {
-    Name: 'Gabriel De Souza Lima',
+    Name: 'Gabriel Lima',
     Dia: 4,
     Mes: 1,
     Folga: false,
@@ -60,7 +60,7 @@ let peoples = {
     Ferias: false
   },
   Severino: {
-    Name: 'João Severino De Lira',
+    Name: 'João Lira',
     Dia: 2,
     Mes: 1,
     Folga: false,
@@ -72,7 +72,7 @@ let peoples = {
     Ferias: false
   },
   Florisvaldo: {
-    Name: 'Florisvaldo Freitas Silva',
+    Name: 'Florisvaldo',
     Dia: 3,
     Mes: 1,
     Folga: false,
@@ -84,7 +84,7 @@ let peoples = {
     Ferias: false
   },
   Vitor: {
-    Name: 'Vitor Oliveira Barbosa',
+    Name: 'Vitor Oliveira',
     Dia: 8,
     Mes: 11,
     Folga: false,
@@ -96,7 +96,7 @@ let peoples = {
     Ferias: false
   },
   Pereira: {
-    Name: 'Matheus Pereira Ramos',
+    Name: 'Matheus Pereira',
     Dia: 4,
     Mes: 1,
     Folga: false,
@@ -107,8 +107,8 @@ let peoples = {
     Folgas: [],
     Ferias: false
   },
-  /*Machado: {
-    Name: 'Bruno Machado Sidomo',
+  Machado: {
+    Name: 'Bruno Sidomo',
     Dia: 1,
     Mes: 1,
     Folga: false,
@@ -118,9 +118,9 @@ let peoples = {
     Count: [0, 0, 0, 0, 0],
     Folgas: [],
     Ferias: true
-  },*/
+  },
   Martins: {
-    Name: 'Gabriel Martins Filho',
+    Name: 'Gabriel Martins',
     Dia: 4,
     Mes: 1,
     Folga: false,
@@ -132,7 +132,7 @@ let peoples = {
     Ferias: false
   },
   Marcos: {
-    Name: 'Marcos Vinicius De Souza',
+    Name: 'Marcos Vinicius',
     Dia: 6,
     Mes: 1,
     Folga: false,
@@ -144,7 +144,7 @@ let peoples = {
     Ferias: false
   },
   Pedro: {
-    Name: 'Pedro Henrique Sorrilha Cordeiro',
+    Name: 'Pedro Henrique',
     Dia: 6,
     Mes: 1,
     Folga: false,
@@ -1372,7 +1372,7 @@ function copyScale() {
 
       // Itera sobre cada voo
       voos.forEach(voo => {
-        const destinoVoo = voo.querySelector('h2').textContent.split(' - ')[0] // Pega o destino do voo
+        const destinoVoo = voo.querySelector('h2').textContent //.split(' - ')[0] // Pega o destino do voo
         const funcionarios = voo.querySelectorAll('.peoplesIn h2')
         const nomesFuncionarios = Array.from(funcionarios)
           .map(p => p.textContent)
