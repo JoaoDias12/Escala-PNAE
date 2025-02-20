@@ -107,7 +107,7 @@ let peoples = {
     Folgas: [],
     Ferias: false
   },
-  Machado: {
+  /*Machado: {
     Name: 'Bruno Sidomo',
     Dia: 1,
     Mes: 1,
@@ -118,7 +118,7 @@ let peoples = {
     Count: [0, 0, 0, 0, 0],
     Folgas: [],
     Ferias: true
-  },
+  },*/
   Martins: {
     Name: 'Gabriel Martins',
     Dia: 4,
