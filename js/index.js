@@ -1,4 +1,4 @@
-let peoples = {
+/*let peoples = {
   Dias: {
     Name: 'João Dias',
     Dia: 1,
@@ -54,7 +54,7 @@ let peoples = {
     Folga: false,
     Dupla: false,
     GateMaker: [0],
-    Time: 'H0',
+    Time: 'H1',
     Count: [0, 0, 0, 0, 0],
     Folgas: [],
     Ferias: false
@@ -107,7 +107,7 @@ let peoples = {
     Folgas: [],
     Ferias: false
   },
-  /*Machado: {
+  Machado: {
     Name: 'Bruno Sidomo',
     Dia: 1,
     Mes: 1,
@@ -118,7 +118,7 @@ let peoples = {
     Count: [0, 0, 0, 0, 0],
     Folgas: [],
     Ferias: true
-  },*/
+  },
   Martins: {
     Name: 'Gabriel Martins',
     Dia: 4,
@@ -167,7 +167,7 @@ let peoples = {
     Folgas: [],
     Ferias: false
   }
-}
+}*/
 
 const firebaseConfig = firebase.initializeApp({
   apiKey: 'AIzaSyBR0io-r_snZTWy1pe8A0dsb4awBpANDxs',
@@ -181,7 +181,7 @@ const firebaseConfig = firebase.initializeApp({
 
 var database = firebase.database()
 
-//let peoples = {}
+let peoples = {}
 let needToSaveCount = false
 
 // Função para carregar a lista de peoples do Firebase
@@ -237,6 +237,21 @@ setTimeout(function () {
   loadAdminThings()
   copyScale()
   loadOpenAdmin()
+
+  console.log('Objeto do Bruno:', peoples['Correia'])
+  console.log('Tipo do objeto do Bruno:', typeof peoples['Correia'])
+  console.log(
+    'Bruno é um objeto simples?',
+    peoples['Correia'] instanceof Object &&
+      !(peoples['Correia'] instanceof Array)
+  )
+
+  console.log('Objeto do Dias:', peoples['Dias'])
+  console.log('Tipo do objeto do Dias:', typeof peoples['Dias'])
+  console.log(
+    'Dias é um objeto simples?',
+    peoples['Dias'] instanceof Object && !(peoples['Dias'] instanceof Array)
+  )
 }, 2000)
 
 let escala = 6
@@ -352,15 +367,20 @@ function loadAdminThings() {
       let inptChFerias = document.getElementById('inptChFerias')
 
       btnChange.addEventListener('click', function () {
-        peoples[peopleSelected].Dia = inptChDay.value
-        peoples[peopleSelected].Mes = inptChMonth.value
-        peoples[peopleSelected].Time = inptChTime.value
-        peoples[peopleSelected].Dupla = inptChDouble.getAttribute('value')
-        peoples[peopleSelected].Folga = inptChSlack.getAttribute('value')
-        peoples[peopleSelected].Ferias = inptChFerias.getAttribute('value')
+        // Atualiza os valores com os tipos corretos
+        peoples[peopleSelected].Dia = Number(inptChDay.value) // Converte para número
+        peoples[peopleSelected].Mes = Number(inptChMonth.value) // Converte para número
+        peoples[peopleSelected].Time = inptChTime.value // Já é uma string
 
+        // Converte para booleanos
+        peoples[peopleSelected].Dupla = inptChDouble.value === 'true' // Converte para boolean
+        peoples[peopleSelected].Folga = inptChSlack.value === 'true' // Converte para boolean
+        peoples[peopleSelected].Ferias = inptChFerias.value === 'true' // Converte para boolean
+
+        // Salva no Firebase
         savePeoplesToFirebase(peoples)
 
+        // Recarrega a página
         location.reload()
       })
 
@@ -1197,7 +1217,7 @@ function populatePeopleList(peoples) {
       fullName += `<span style="color: #00152B;">(G)</span>`
     }
 
-    if (!person.Folga) {
+    if (!person.Folga && !person.Ferias) {
       let listClass = `list${person.Time}`
 
       // Se a pessoa for H0, ajuste para H1
