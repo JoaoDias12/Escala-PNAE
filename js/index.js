@@ -1,4 +1,4 @@
-/*let peoples = {
+let peoples = {
   Dias: {
     Name: 'João Dias',
     Dia: 1,
@@ -167,7 +167,7 @@
     Folgas: [],
     Ferias: false
   }
-}*/
+}
 
 const firebaseConfig = firebase.initializeApp({
   apiKey: 'AIzaSyBR0io-r_snZTWy1pe8A0dsb4awBpANDxs',
@@ -181,7 +181,7 @@ const firebaseConfig = firebase.initializeApp({
 
 var database = firebase.database()
 
-let peoples = {}
+//let peoples = {}
 let needToSaveCount = false
 
 // Função para carregar a lista de peoples do Firebase
