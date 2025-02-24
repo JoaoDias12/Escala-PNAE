@@ -85,8 +85,8 @@ let peoples = {
   },
   Vitor: {
     Name: 'Vitor Oliveira',
-    Dia: 8,
-    Mes: 11,
+    Dia: 6,
+    Mes: 02,
     Folga: false,
     Dupla: false,
     GateMaker: [11, 26],
