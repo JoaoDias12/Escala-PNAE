@@ -157,10 +157,10 @@ let peoples = {
   },
   Correia: {
     Name: 'Bruno Correia',
-    Dia: 1,
-    Mes: 1,
+    Dia: 9,
+    Mes: 2,
     Folga: false,
-    Dupla: true,
+    Dupla: false,
     GateMaker: [8],
     Time: 'H3',
     Count: [0, 0, 0, 0, 0],
