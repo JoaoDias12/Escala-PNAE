@@ -86,7 +86,7 @@ let peoples = {
   Vitor: {
     Name: 'Vitor Oliveira',
     Dia: 6,
-    Mes: 02,
+    Mes: 2,
     Folga: false,
     Dupla: false,
     GateMaker: [11, 26],
@@ -157,10 +157,10 @@ let peoples = {
   },
   Correia: {
     Name: 'Bruno Correia',
-    Dia: 9,
-    Mes: 2,
+    Dia: 1,
+    Mes: 1,
     Folga: false,
-    Dupla: false,
+    Dupla: true,
     GateMaker: [8],
     Time: 'H3',
     Count: [0, 0, 0, 0, 0],
@@ -181,7 +181,6 @@ const firebaseConfig = firebase.initializeApp({
 
 var database = firebase.database()
 
-//let peoples = {}
 let needToSaveCount = false
 
 // Função para carregar a lista de peoples do Firebase
@@ -227,6 +226,7 @@ function syncPeoplesFromFirebase() {
 
 setTimeout(function () {
   distribuirPessoas()
+  atualizarFolgas(peoples, escala)
   populatePeopleList(peoples)
   /* Object.keys(peoples).forEach(ppl => {
     peoples[ppl].Count = [0, 0, 0, 0, 0]
@@ -237,21 +237,6 @@ setTimeout(function () {
   loadAdminThings()
   copyScale()
   loadOpenAdmin()
-
-  console.log('Objeto do Bruno:', peoples['Correia'])
-  console.log('Tipo do objeto do Bruno:', typeof peoples['Correia'])
-  console.log(
-    'Bruno é um objeto simples?',
-    peoples['Correia'] instanceof Object &&
-      !(peoples['Correia'] instanceof Array)
-  )
-
-  console.log('Objeto do Dias:', peoples['Dias'])
-  console.log('Tipo do objeto do Dias:', typeof peoples['Dias'])
-  console.log(
-    'Dias é um objeto simples?',
-    peoples['Dias'] instanceof Object && !(peoples['Dias'] instanceof Array)
-  )
 }, 2000)
 
 let escala = 6
@@ -551,8 +536,6 @@ function mostrarFolgas() {
     }
   }
 }
-
-atualizarFolgas(peoples, escala)
 
 // Função para obter a hora atual em São Paulo
 function getSPTime() {
@@ -1418,19 +1401,27 @@ function copyScale() {
   })
 }
 
+const SENHA_RESET = 'sim'
+
 function deletePeoples() {
   // Cria uma referência para o nó 'peoples'
   var peoplesRef = database.ref('peoples')
 
-  // Remove o nó 'peoples'
-  peoplesRef
-    .remove()
-    .then(() => {
-      alert('Resetando...')
-      location.reload()
-    })
-    .catch(error => {
-      console.error('Erro ao excluir o nó "peoples":', error)
-      alert('Erro ao excluir o nó "peoples": ' + error.message)
-    })
+  const senhaInserida = prompt('Digite a senha para resetar:')
+  if (senhaInserida === SENHA_RESET) {
+    console.log('senha correta')
+    // Remove o nó 'peoples'
+    peoplesRef
+      .remove()
+      .then(() => {
+        alert('Resetando...')
+        location.reload()
+      })
+      .catch(error => {
+        console.error('Erro ao excluir o nó "peoples":', error)
+        alert('Erro ao excluir o nó "peoples": ' + error.message)
+      })
+  } else {
+    alert('Senha incorreta! Acesso negado.')
+  }
 }
