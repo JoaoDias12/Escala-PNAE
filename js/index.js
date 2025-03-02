@@ -157,8 +157,8 @@ let peoples = {
   },
   Correia: {
     Name: 'Bruno Correia',
-    Dia: 1,
-    Mes: 1,
+    Dia: 24,
+    Mes: 2,
     Folga: false,
     Dupla: true,
     GateMaker: [1],
