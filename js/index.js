@@ -5,7 +5,7 @@ let peoples = {
     Mes: 1,
     Folga: false,
     Dupla: false,
-    GateMaker: [7,21,23],
+    GateMaker: [7, 21, 23],
     Time: 'H3',
     Count: [0, 0, 0, 0, 0],
     Folgas: [],
@@ -41,7 +41,7 @@ let peoples = {
     Mes: 1,
     Folga: false,
     Dupla: true,
-    GateMaker: [8,17],
+    GateMaker: [8, 17],
     Time: 'H3',
     Count: [0, 0, 0, 0, 0],
     Folgas: [],
@@ -53,7 +53,7 @@ let peoples = {
     Mes: 1,
     Folga: false,
     Dupla: false,
-    GateMaker: [6,15,29],
+    GateMaker: [6, 15, 29],
     Time: 'H1',
     Count: [0, 0, 0, 0, 0],
     Folgas: [],
@@ -77,8 +77,8 @@ let peoples = {
     Mes: 1,
     Folga: false,
     Dupla: false,
-    GateMaker: [5,25],
-    Time: 'H3',
+    GateMaker: [5, 25],
+    Time: 'H1',
     Count: [0, 0, 0, 0, 0],
     Folgas: [],
     Ferias: false
@@ -89,7 +89,7 @@ let peoples = {
     Mes: 2,
     Folga: false,
     Dupla: false,
-    GateMaker: [4,19,24],
+    GateMaker: [4, 19, 24],
     Time: 'H3',
     Count: [0, 0, 0, 0, 0],
     Folgas: [],
@@ -113,7 +113,7 @@ let peoples = {
     Mes: 1,
     Folga: false,
     Dupla: false,
-    GateMaker: [13,22,31],
+    GateMaker: [13, 22, 31],
     Time: 'H0',
     Count: [0, 0, 0, 0, 0],
     Folgas: [],
@@ -125,7 +125,7 @@ let peoples = {
     Mes: 1,
     Folga: false,
     Dupla: true,
-    GateMaker: [11,12,14,30],
+    GateMaker: [11, 12, 14, 30],
     Time: 'H1',
     Count: [0, 0, 0, 0, 0],
     Folgas: [],
@@ -137,7 +137,7 @@ let peoples = {
     Mes: 1,
     Folga: false,
     Dupla: false,
-    GateMaker: [10,20,26,27],
+    GateMaker: [10, 20, 26, 27],
     Time: 'H1',
     Count: [0, 0, 0, 0, 0],
     Folgas: [],
@@ -149,7 +149,7 @@ let peoples = {
     Mes: 1,
     Folga: false,
     Dupla: false,
-    GateMaker: [9,16,28],
+    GateMaker: [9, 16, 28],
     Time: 'H0',
     Count: [0, 0, 0, 0, 0],
     Folgas: [],
@@ -180,8 +180,6 @@ const firebaseConfig = firebase.initializeApp({
 })
 
 var database = firebase.database()
-
-let needToSaveCount = false
 
 // Função para carregar a lista de peoples do Firebase
 function loadPeoplesFromFirebase() {
@@ -225,6 +223,7 @@ function syncPeoplesFromFirebase() {
 // Chamar a função para adicionar o campo "Ferias"
 
 setTimeout(function () {
+  resetAllCounts()
   distribuirPessoas()
   atualizarFolgas(peoples, escala)
   populatePeopleList(peoples)
@@ -867,52 +866,39 @@ function distribuirPessoas() {
   function assignPeople(flight, availablePeople, dateString) {
     // Verificar e ajustar o Time do Correia com base no ChangeTime
 
+    // Encontrar o índice do voo no array de flights
+    const flightIndex = Object.keys(flights).indexOf(flight)
+
+    // Ordenar as pessoas disponíveis pelo Count correspondente ao voo
+    availablePeople.sort((a, b) => {
+      return peoples[a].Count[flightIndex] - peoples[b].Count[flightIndex]
+    })
+
     if (availablePeople.length >= 2) {
-      // Rotação entre 0930 e 0962
-      if (flight === 'Miami - 0930' || flight === 'Dallas - 0962') {
-        const previousDate = new Date(dateString)
-        previousDate.setDate(previousDate.getDate() - 1)
-        const prevDateString = previousDate.toISOString().split('T')[0]
-
-        const prev0930 = assignments[prevDateString]
-          ? assignments[prevDateString]['Miami - 0930'] || []
-          : []
-        const prev0950 = assignments[prevDateString]
-          ? assignments[prevDateString]['Dallas - 0962'] || []
-          : []
-
-        if (flight === 'Miami - 0930') {
-          if (prev0930.includes('Pedro') && availablePeople.includes('Pedro')) {
-            const index = availablePeople.indexOf('Pedro')
-            availablePeople.splice(index, 1)
-            availablePeople.push('Pedro')
-          }
-        }
-
-        if (flight === 'Dallas - 0962') {
-          if (prev0950.includes('Pedro') && availablePeople.includes('Pedro')) {
-            const index = availablePeople.indexOf('Pedro')
-            availablePeople.splice(index, 1)
-            availablePeople.push('Pedro')
-          }
-        }
-      }
-
+      // Atribuir as duas pessoas com o menor Count para o voo
       assignments[dateString][flight] = availablePeople.slice(0, 2)
     } else if (availablePeople.length === 1) {
+      // Atribuir a única pessoa disponível
       assignments[dateString][flight].push(availablePeople[0])
 
-      // Attempt to fill the second spot with someone from the fallback times
+      // Tentar preencher a segunda vaga com alguém dos fallback times
       const fallbackPeople = getAvailablePeople(
         flight,
         new Date(dateString).getDate(),
         false
       )
+
       if (fallbackPeople.length > 0) {
+        // Ordenar fallbackPeople pelo Count correspondente ao voo
+        fallbackPeople.sort((a, b) => {
+          return peoples[a].Count[flightIndex] - peoples[b].Count[flightIndex]
+        })
+
+        // Atribuir a pessoa com o menor Count do fallback
         assignments[dateString][flight].push(fallbackPeople[0])
       }
 
-      // Fill the gap with someone from 0958 or 0906 if needed
+      // Preencher a vaga com alguém de 0958 ou 0906, se necessário
       if (
         assignments[dateString][flight].length < 2 &&
         (flight === 'Dallas - 0962' || flight === 'Miami - 0930')
@@ -921,6 +907,14 @@ function distribuirPessoas() {
         for (const backupFlight of backupFlights) {
           const backupPeople = assignments[dateString][backupFlight]
           if (backupPeople.length > 0) {
+            // Ordenar backupPeople pelo Count correspondente ao voo
+            backupPeople.sort((a, b) => {
+              return (
+                peoples[a].Count[flightIndex] - peoples[b].Count[flightIndex]
+              )
+            })
+
+            // Atribuir a pessoa com o menor Count do backup
             assignments[dateString][flight].push(backupPeople.pop())
             if (assignments[dateString][flight].length >= 2) break
           }
@@ -930,38 +924,46 @@ function distribuirPessoas() {
       availablePeople.length === 0 &&
       (flight === 'Miami - 0930' || flight === 'Dallas - 0962')
     ) {
-      // If no available people, try to pull someone from 0906 or 0958 directly
+      // Se não houver pessoas disponíveis, tentar puxar alguém de 0906 ou 0958 diretamente
       const backupFlights = ['Miami - 0958', 'Miami - 0906']
       for (const backupFlight of backupFlights) {
         const backupPeople = assignments[dateString][backupFlight]
         if (backupPeople.length > 0) {
+          // Ordenar backupPeople pelo Count correspondente ao voo
+          backupPeople.sort((a, b) => {
+            return peoples[a].Count[flightIndex] - peoples[b].Count[flightIndex]
+          })
+
+          // Atribuir a pessoa com o menor Count do backup
           assignments[dateString][flight].push(backupPeople.pop())
           if (assignments[dateString][flight].length >= 2) break
         }
       }
     }
 
-    // Check for duplicate names and replace one if found
+    // Verificar nomes duplicados e substituir um, se encontrado
     const uniquePeople = new Set(assignments[dateString][flight])
     if (uniquePeople.size < assignments[dateString][flight].length) {
       const backupFlights = ['Miami - 0958', 'Miami - 0906']
       for (const backupFlight of backupFlights) {
         const backupPeople = assignments[dateString][backupFlight]
         if (backupPeople.length > 0) {
+          // Ordenar backupPeople pelo Count correspondente ao voo
+          backupPeople.sort((a, b) => {
+            return peoples[a].Count[flightIndex] - peoples[b].Count[flightIndex]
+          })
+
+          // Substituir a pessoa duplicada pela pessoa com o menor Count do backup
           assignments[dateString][flight].splice(1, 1, backupPeople.pop())
           break
         }
       }
     }
 
-    if (needToSaveCount) {
-      // Update Count for each person assigned
-      assignments[dateString][flight].forEach(personKey => {
-        const flightIndex = Object.keys(flights).indexOf(flight)
-        peoples[personKey].Count[flightIndex]++
-        salvarLog(peoples[personKey].Name, flight)
-      })
-    }
+    // Atualizar o Count para cada pessoa atribuída
+    assignments[dateString][flight].forEach(personKey => {
+      peoples[personKey].Count[flightIndex]++
+    })
   }
 
   // Add GateMaker as fixed check-in closer
@@ -1120,9 +1122,15 @@ function distribuirPessoas() {
   }
 
   // Salvar assignments no banco de dados para todos os dias
-  salvarAssignments(assignments, diaAtual)
+  // salvarAssignments(assignments, diaAtual)
 
   return assignments
+}
+
+function resetAllCounts() {
+  Object.keys(peoples).forEach(people => {
+    peoples[people].Count = [0, 0, 0, 0, 0]
+  })
 }
 
 function scheduleTask() {
@@ -1144,14 +1152,6 @@ function scheduleTask() {
     .catch(error => {
       console.error('Erro ao ler dados: ', error)
     })
-}
-
-function salvarLog(person, flightIndex) {
-  const now = new Date().toISOString()
-  firebase.database().ref(`app/logs/${person}`).push({
-    date: now,
-    flight: flightIndex
-  })
 }
 
 function salvarAssignments(assignments, diaAtual) {
@@ -1358,8 +1358,6 @@ function copyScale() {
 
   days.forEach(day => {
     day.addEventListener('click', function () {
-      console.log('clicado')
-
       // Captura o nome do fixo no check-in
       const fixoCheckIn = this.querySelector('.FixedCheckIn h2').textContent
 
@@ -1405,17 +1403,16 @@ const SENHA_RESET = 'sim'
 
 function deletePeoples() {
   // Cria uma referência para o nó 'peoples'
-  var peoplesRef = database.ref('peoples')
+  var peoplesRef = database.ref('app')
 
   const senhaInserida = prompt('Digite a senha para resetar:')
   if (senhaInserida === SENHA_RESET) {
-    console.log('senha correta')
     // Remove o nó 'peoples'
     peoplesRef
       .remove()
       .then(() => {
         alert('Resetando...')
-        location.reload()
+        //location.reload()
       })
       .catch(error => {
         console.error('Erro ao excluir o nó "peoples":', error)
