@@ -78,7 +78,7 @@ let peoples = {
     Folga: false,
     Dupla: false,
     GateMaker: [5, 25],
-    Time: 'H1',
+    Time: 'H3',
     Count: [0, 0, 0, 0, 0],
     Folgas: [],
     Ferias: false
@@ -150,7 +150,7 @@ let peoples = {
     Folga: false,
     Dupla: false,
     GateMaker: [9, 16, 28],
-    Time: 'H0',
+    Time: 'H2',
     Count: [0, 0, 0, 0, 0],
     Folgas: [],
     Ferias: false
