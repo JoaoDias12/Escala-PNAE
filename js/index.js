@@ -33,7 +33,7 @@ let peoples = {
     Time: 'H3',
     Count: [0, 0, 0, 0, 0],
     Folgas: [],
-    Ferias: false
+    Ferias: true
   },
   Souza: {
     Name: 'Gabriel Lima',
@@ -117,7 +117,7 @@ let peoples = {
     Time: 'H0',
     Count: [0, 0, 0, 0, 0],
     Folgas: [],
-    Ferias: true
+    Ferias: false
   },
   Martins: {
     Name: 'Gabriel Martins',
