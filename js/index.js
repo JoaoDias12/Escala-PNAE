@@ -109,8 +109,8 @@ let peoples = {
   },
   Machado: {
     Name: 'Bruno Sidomo',
-    Dia: 1,
-    Mes: 1,
+    Dia: 19,
+    Mes: 3,
     Folga: false,
     Dupla: false,
     GateMaker: [13, 22, 31],
