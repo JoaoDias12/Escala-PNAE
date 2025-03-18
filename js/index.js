@@ -160,7 +160,7 @@ let peoples = {
     Dia: 11,
     Mes: 3,
     Folga: false,
-    Dupla: true,
+    Dupla: false,
     GateMaker: [1],
     Time: 'H3',
     Count: [0, 0, 0, 0, 0],
