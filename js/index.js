@@ -7,7 +7,7 @@ let peoples = {
     Dupla: false,
     GateMaker: [7, 21, 23],
     Time: 'H3',
-    Count: [0, 0, 0, 0, 0],
+    Count: [0, 0, 0, 0],
     Folgas: [],
     Ferias: false
   },
@@ -19,7 +19,7 @@ let peoples = {
     Dupla: true,
     GateMaker: [18],
     Time: 'H3',
-    Count: [0, 0, 0, 0, 0],
+    Count: [0, 0, 0, 0],
     Folgas: [],
     Ferias: false
   },
@@ -31,7 +31,7 @@ let peoples = {
     Dupla: true,
     GateMaker: [2],
     Time: 'H3',
-    Count: [0, 0, 0, 0, 0],
+    Count: [0, 0, 0, 0],
     Folgas: [],
     Ferias: true
   },
@@ -43,7 +43,7 @@ let peoples = {
     Dupla: true,
     GateMaker: [8, 17],
     Time: 'H3',
-    Count: [0, 0, 0, 0, 0],
+    Count: [0, 0, 0, 0],
     Folgas: [],
     Ferias: false
   },
@@ -55,7 +55,7 @@ let peoples = {
     Dupla: false,
     GateMaker: [6, 15, 29],
     Time: 'H1',
-    Count: [0, 0, 0, 0, 0],
+    Count: [0, 0, 0, 0],
     Folgas: [],
     Ferias: false
   },
@@ -67,7 +67,7 @@ let peoples = {
     Dupla: false,
     GateMaker: [0],
     Time: 'H3',
-    Count: [0, 0, 0, 0, 0],
+    Count: [0, 0, 0, 0],
     Folgas: [],
     Ferias: false
   },
@@ -79,7 +79,7 @@ let peoples = {
     Dupla: false,
     GateMaker: [5, 25],
     Time: 'H3',
-    Count: [0, 0, 0, 0, 0],
+    Count: [0, 0, 0, 0],
     Folgas: [],
     Ferias: false
   },
@@ -91,7 +91,7 @@ let peoples = {
     Dupla: false,
     GateMaker: [4, 19, 24],
     Time: 'H3',
-    Count: [0, 0, 0, 0, 0],
+    Count: [0, 0, 0, 0],
     Folgas: [],
     Ferias: false
   },
@@ -103,7 +103,7 @@ let peoples = {
     Dupla: false,
     GateMaker: [3],
     Time: 'H3',
-    Count: [0, 0, 0, 0, 0],
+    Count: [0, 0, 0, 0],
     Folgas: [],
     Ferias: false
   },
@@ -115,7 +115,7 @@ let peoples = {
     Dupla: false,
     GateMaker: [13, 22, 31],
     Time: 'H0',
-    Count: [0, 0, 0, 0, 0],
+    Count: [0, 0, 0, 0],
     Folgas: [],
     Ferias: false
   },
@@ -127,7 +127,7 @@ let peoples = {
     Dupla: true,
     GateMaker: [11, 12, 14, 30],
     Time: 'H1',
-    Count: [0, 0, 0, 0, 0],
+    Count: [0, 0, 0, 0],
     Folgas: [],
     Ferias: false
   },
@@ -139,7 +139,7 @@ let peoples = {
     Dupla: false,
     GateMaker: [10, 20, 26, 27],
     Time: 'H1',
-    Count: [0, 0, 0, 0, 0],
+    Count: [0, 0, 0, 0],
     Folgas: [],
     Ferias: false
   },
@@ -150,8 +150,8 @@ let peoples = {
     Folga: false,
     Dupla: false,
     GateMaker: [9, 16, 28],
-    Time: 'H2',
-    Count: [0, 0, 0, 0, 0],
+    Time: 'H1',
+    Count: [0, 0, 0, 0],
     Folgas: [],
     Ferias: false
   },
@@ -163,7 +163,7 @@ let peoples = {
     Dupla: false,
     GateMaker: [1],
     Time: 'H3',
-    Count: [0, 0, 0, 0, 0],
+    Count: [0, 0, 0, 0],
     Folgas: [],
     Ferias: false
   }
@@ -258,14 +258,17 @@ function loadAdminThings() {
       let dp = name.getAttribute('data-people')
       peopleSelected = dp
 
+      //<h2>0958 - ${peoples[dp].Count[3]}</h2>
+      //Miami - 0958 (como tava salvo no firebase)
+
       infosControl.innerHTML = `<button id="btnBackInfos">Voltar</button>
       <h2>${peoples[dp].Name}</h2>
       <div>
       <h2>0930 - ${peoples[dp].Count[0]}</h2>
       <h2>0962 - ${peoples[dp].Count[1]}</h2>
       <h2>0950 - ${peoples[dp].Count[2]}</h2>
-      <h2>0958 - ${peoples[dp].Count[3]}</h2>
-      <h2>0906 - ${peoples[dp].Count[4]}</h2>
+      
+      <h2>0906 - ${peoples[dp].Count[3]}</h2>
       </div>
 
       <div>
@@ -687,31 +690,31 @@ function distribuirPessoas() {
   const assignments = {}
   const flights = {
     'Miami - 0930': {
-      times: '21:35 / 22:25',
+      times: '20:35 / 21:25',
       time: 'H1',
       fallback: ['H2', 'H3'],
       checkInEnd: '21:20'
     },
     'Dallas - 0962': {
-      times: '22:10 / 23:00',
+      times: '21:10 / 22:00',
       time: 'H1',
       fallback: ['H2', 'H3'],
       checkInEnd: '21:55'
     },
     'Nova York - 0950': {
-      times: '22:20 / 23:10',
+      times: '21:35 / 22:25',
       time: 'H3',
       fallback: ['H2'],
       checkInEnd: '22:05'
     },
-    'Miami - 0958': {
-      times: '23:00 / 23:50',
+    /*'Miami - 0958': {
+      times: '00:00 / 00:50',
       time: 'H3',
       fallback: ['H2'],
       checkInEnd: '22:45'
-    },
+    },*/
     'Miami - 0906': {
-      times: '23:40 / 00:30',
+      times: '22:25 / 23:15',
       time: 'H3',
       checkInEnd: '23:25'
     }
@@ -903,7 +906,7 @@ function distribuirPessoas() {
         assignments[dateString][flight].length < 2 &&
         (flight === 'Dallas - 0962' || flight === 'Miami - 0930')
       ) {
-        const backupFlights = ['Miami - 0958', 'Miami - 0906']
+        const backupFlights = [/*'Miami - 0958',*/ 'Miami - 0906']
         for (const backupFlight of backupFlights) {
           const backupPeople = assignments[dateString][backupFlight]
           if (backupPeople.length > 0) {
@@ -925,7 +928,7 @@ function distribuirPessoas() {
       (flight === 'Miami - 0930' || flight === 'Dallas - 0962')
     ) {
       // Se não houver pessoas disponíveis, tentar puxar alguém de 0906 ou 0958 diretamente
-      const backupFlights = ['Miami - 0958', 'Miami - 0906']
+      const backupFlights = [/*'Miami - 0958',*/ 'Miami - 0906']
       for (const backupFlight of backupFlights) {
         const backupPeople = assignments[dateString][backupFlight]
         if (backupPeople.length > 0) {
@@ -944,7 +947,7 @@ function distribuirPessoas() {
     // Verificar nomes duplicados e substituir um, se encontrado
     const uniquePeople = new Set(assignments[dateString][flight])
     if (uniquePeople.size < assignments[dateString][flight].length) {
-      const backupFlights = ['Miami - 0958', 'Miami - 0906']
+      const backupFlights = [/*'Miami - 0958',*/ 'Miami - 0906']
       for (const backupFlight of backupFlights) {
         const backupPeople = assignments[dateString][backupFlight]
         if (backupPeople.length > 0) {
@@ -1004,7 +1007,7 @@ function distribuirPessoas() {
     'Miami - 0930',
     'Dallas - 0962',
     'Nova York - 0950',
-    'Miami - 0958',
+    /*'Miami - 0958',*/
     'Miami - 0906'
   ]
 
