@@ -25,10 +25,10 @@ let peoples = {
   },
   Laiza: {
     Name: 'Laiza',
-    Dia: 3,
+    Dia: 8,
     Mes: 1,
     Folga: false,
-    Dupla: true,
+    Dupla: false,
     GateMaker: [5,13],
     Time: 'H3',
     Count: [0, 0, 0, 0],
