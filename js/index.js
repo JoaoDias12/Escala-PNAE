@@ -1,4 +1,28 @@
 let peoples = {
+  Lucas: {
+    Name: 'Lucas',
+    Dia: 20,
+    Mes: 4,
+    Folga: false,
+    Dupla: false,
+    GateMaker: [0],
+    Time: 'H1',
+    Count: [0, 0, 0, 0],
+    Folgas: [],
+    Ferias: false
+  },
+  Sorleane: {
+    Name: 'Sorleane',
+    Dia: 20,
+    Mes: 4,
+    Folga: false,
+    Dupla: false,
+    GateMaker: [0],
+    Time: 'H1',
+    Count: [0, 0, 0, 0],
+    Folgas: [],
+    Ferias: false
+  },
   Mohamed: {
     Name: 'Mohamed',
     Dia: 11,
