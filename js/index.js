@@ -25,7 +25,7 @@ let peoples = {
   },
   Mohamed: {
     Name: 'Mohamed',
-    Dia: 11,
+    Dia: 25,
     Mes: 4,
     Folga: false,
     Dupla: false,
@@ -37,7 +37,7 @@ let peoples = {
   },
   Christiano: {
     Name: 'Christiano',
-    Dia: 14,
+    Dia: 24,
     Mes: 4,
     Folga: false,
     Dupla: false,
