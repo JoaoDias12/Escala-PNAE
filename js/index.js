@@ -95,18 +95,6 @@ let peoples = {
     Folgas: [],
     Ferias: false
   },
-  Victor: {
-    Name: 'Victor Augusto',
-    Dia: 1,
-    Mes: 1,
-    Folga: false,
-    Dupla: false,
-    GateMaker: [4, 21, 27],
-    Time: 'H1',
-    Count: [0, 0, 0, 0],
-    Folgas: [],
-    Ferias: false
-  },
   Severino: {
     Name: 'João Lira',
     Dia: 2,
@@ -126,18 +114,6 @@ let peoples = {
     Folga: false,
     Dupla: false,
     GateMaker: [0],
-    Time: 'H3',
-    Count: [0, 0, 0, 0],
-    Folgas: [],
-    Ferias: true
-  },
-  Vitor: {
-    Name: 'Vitor Oliveira',
-    Dia: 6,
-    Mes: 2,
-    Folga: false,
-    Dupla: false,
-    GateMaker: [9, 17],
     Time: 'H3',
     Count: [0, 0, 0, 0],
     Folgas: [],
