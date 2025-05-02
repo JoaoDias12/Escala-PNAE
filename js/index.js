@@ -13,10 +13,10 @@ let peoples = {
   },
   Sorleane: {
     Name: 'Sorleane',
-    Dia: 20,
-    Mes: 4,
+    Dia: 1,
+    Mes: 5,
     Folga: false,
-    Dupla: false,
+    Dupla: true,
     GateMaker: [4,20,27],
     Time: 'H1',
     Count: [0, 0, 0, 0],
