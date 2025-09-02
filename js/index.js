@@ -121,10 +121,10 @@ let peoples = {
     },
     Pereira: {
       Name: 'Matheus Pereira',
-      Dia: 31,
-      Mes: 8,
+      Dia: 8,
+      Mes: 9,
       Folga: false,
-      Dupla: true,
+      Dupla: false,
       GateMaker: [9],
       Time: 'H3',
       Count: [0, 0, 0, 0],
