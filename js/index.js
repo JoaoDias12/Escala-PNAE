@@ -1,6 +1,6 @@
 let peoples = {
     Kaua: {
-        Name: 'Gabriel Kaua Martins De Souza',
+        Name: 'Gabriel Kaua',
         Dia: 3,
         Mes: 9,
         Folga: false,
@@ -84,7 +84,7 @@ let peoples = {
       Ferias: false
     },
     Jonathan: {
-      Name: 'Jonathan Henrique Da Silva',
+      Name: 'Jonathan Henrique',
       Dia: 1,
       Mes: 9,
       Folga: false,
@@ -168,7 +168,7 @@ let peoples = {
       Ferias: false
     },
     Gustavo: {
-        Name: 'Gustavo Ramos Da Costa',
+        Name: 'Gustavo Ramos',
         Dia: 6,
         Mes: 9,
         Folga: false,
